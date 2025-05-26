@@ -308,7 +308,6 @@ export function createLeftLineBlock(): string {
 export function createRightLineBlock(): string {
     return "right_line";
 }
-}
 
     //% block="set servo to angle %angle"
     //% group="Servo" weight=69
@@ -322,4 +321,5 @@ function motor_i2cWrite(reg: number, value: number) {
     buf[0] = reg
     buf[1] = value
     pins.i2cWriteBuffer(address, buf)
+}
 }
