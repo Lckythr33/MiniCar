@@ -289,7 +289,7 @@ namespace MiniCar {
 //% blockId="no_line_block" 
 //% group="Line Tracking" 
 //% weight=68
-export function createNoLineBlock(): string {
+export function NoLine(): string {
     return "no_line";
 }
 
@@ -297,7 +297,7 @@ export function createNoLineBlock(): string {
 //% blockId="left_line_block" 
 //% group="Line Tracking" 
 //% weight=68
-export function createLeftLineBlock(): string {
+export function LeftLine(): string {
     return "left_line";
 }
 
@@ -305,8 +305,16 @@ export function createLeftLineBlock(): string {
 //% blockId="right_line_block" 
 //% group="Line Tracking" 
 //% weight=68
-export function createRightLineBlock(): string {
+export function RightLine(): string {
     return "right_line";
+}
+
+//% block="Right Line" 
+//% blockId="right_line_block" 
+//% group="Line Tracking" 
+//% weight=68
+export function BothLine(): string {
+    return "both_line";
 }
 
     //% block="set servo to angle %angle"
