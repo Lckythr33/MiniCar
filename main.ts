@@ -280,8 +280,50 @@ namespace MiniCar {
             return "both_line";
         default:
             return "no_line"; // Default case if something unexpected happens
-        
-    }
+ 
+            // Create custom blocks to represent these values
+            // These will be used in the MakeCode blocks workspace
+            // The blocks can be dragged in the workspace and used
+            // Create block for "no_line"
+            export function noLine(): string {
+                return "no_line";
+            }
+
+            // Create block for "left_line"
+            export function leftLine(): string {
+                return "left_line";
+            }
+
+            // Create block for "right_line"
+            export function rightLine(): string {
+                return "right_line";
+            }
+
+            //% block="No Line" 
+            //% blockId="no_line_block" 
+            //% group="Line Tracking" 
+            //% weight=100
+            export function createNoLineBlock(): string {
+                return noLine();
+            }
+
+            //% block="Left Line" 
+            //% blockId="left_line_block" 
+            //% group="Line Tracking" 
+            //% weight=90
+            export function createLeftLineBlock(): string {
+                return leftLine();
+            }
+
+            //% block="Right Line" 
+            //% blockId="right_line_block" 
+            //% group="Line Tracking" 
+            //% weight=80
+            export function createRightLineBlock(): string {
+                return rightLine();
+            }
+
+}
 
     //% block="set servo to angle %angle"
     //% group="Servo" weight=69
