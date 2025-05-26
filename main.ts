@@ -263,66 +263,51 @@ namespace MiniCar {
 */
     pins.setPull(DigitalPin.P12, PinPullMode.PullUp);
     pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
+    
     //% block="Line Tracking"
     //% group="Line Tracking" weight=68
-    export function LineTracking(): string {
-        let val = pins.digitalReadPin(DigitalPin.P12) << 0 | pins.digitalReadPin(DigitalPin.P13) << 1;
-        
-        // Return corresponding output based on the pin readings
-    switch (val) {
-        case 0b00: // No line detected
-            return "no_line";
-        case 0b01: // Only right line detected
-            return "right_line";
-        case 0b10: // Only left line detected
-            return "left_line";
-        case 0b11: // Both lines detected
-            return "both_line";
-        default:
-            return "no_line"; // Default case if something unexpected happens
- 
-            // Create custom blocks to represent these values
-            // These will be used in the MakeCode blocks workspace
-            // The blocks can be dragged in the workspace and used
-            // Create block for "no_line"
-            export function noLine(): string {
-                return "no_line";
-            }
+   export function LineTracking(): string {
+    let val = pins.digitalReadPin(DigitalPin.P12) << 0 | pins.digitalReadPin(DigitalPin.P13) << 1;
 
-            // Create block for "left_line"
-            export function leftLine(): string {
-                return "left_line";
-            }
+    if (val == 0b00) {
+        return "no_line";
+    } else if (val == 0b01) {
+        return "right_line";
+    } else if (val == 0b10) {
+        return "left_line";
+    } else if (val == 0b11) {
+        return "both_line";
+    } else {
+        return "no_line"; // Default case
+    }
+}
 
-            // Create block for "right_line"
-            export function rightLine(): string {
-                return "right_line";
-            }
+// Create custom blocks to represent these values
+// These will be used in the MakeCode blocks workspace
 
-            //% block="No Line" 
-            //% blockId="no_line_block" 
-            //% group="Line Tracking" 
-            //% weight=100
-            export function createNoLineBlock(): string {
-                return noLine();
-            }
+//% block="No Line" 
+//% blockId="no_line_block" 
+//% group="Line Tracking" 
+//% weight=100
+export function createNoLineBlock(): string {
+    return "no_line";
+}
 
-            //% block="Left Line" 
-            //% blockId="left_line_block" 
-            //% group="Line Tracking" 
-            //% weight=90
-            export function createLeftLineBlock(): string {
-                return leftLine();
-            }
+//% block="Left Line" 
+//% blockId="left_line_block" 
+//% group="Line Tracking" 
+//% weight=90
+export function createLeftLineBlock(): string {
+    return "left_line";
+}
 
-            //% block="Right Line" 
-            //% blockId="right_line_block" 
-            //% group="Line Tracking" 
-            //% weight=80
-            export function createRightLineBlock(): string {
-                return rightLine();
-            }
-
+//% block="Right Line" 
+//% blockId="right_line_block" 
+//% group="Line Tracking" 
+//% weight=80
+export function createRightLineBlock(): string {
+    return "right_line";
+}
 }
 
     //% block="set servo to angle %angle"
@@ -331,7 +316,6 @@ namespace MiniCar {
     export function setServo(angle: number): void {
         pins.servoWritePin(AnalogPin.P2, angle)
     }
-}
 
 function motor_i2cWrite(reg: number, value: number) {
     let buf = pins.createBuffer(2)
