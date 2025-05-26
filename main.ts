@@ -288,7 +288,7 @@ namespace MiniCar {
 //% block="No Line" 
 //% blockId="no_line_block" 
 //% group="Line Tracking" 
-//% weight=100
+//% weight=68
 export function createNoLineBlock(): string {
     return "no_line";
 }
@@ -296,7 +296,7 @@ export function createNoLineBlock(): string {
 //% block="Left Line" 
 //% blockId="left_line_block" 
 //% group="Line Tracking" 
-//% weight=90
+//% weight=68
 export function createLeftLineBlock(): string {
     return "left_line";
 }
@@ -304,7 +304,7 @@ export function createLeftLineBlock(): string {
 //% block="Right Line" 
 //% blockId="right_line_block" 
 //% group="Line Tracking" 
-//% weight=80
+//% weight=68
 export function createRightLineBlock(): string {
     return "right_line";
 }
