@@ -309,8 +309,8 @@ export function RightLine(): string {
     return "right_line";
 }
 
-//% block="Right Line" 
-//% blockId="right_line_block" 
+//% block="Both Line" 
+//% blockId="both_line_block" 
 //% group="Line Tracking" 
 //% weight=68
 export function BothLine(): string {
