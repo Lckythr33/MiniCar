@@ -265,9 +265,22 @@ namespace MiniCar {
     pins.setPull(DigitalPin.P13, PinPullMode.PullUp);
     //% block="Line Tracking"
     //% group="Line Tracking" weight=68
-    export function LineTracking(): number {
+    export function LineTracking(): string {
         let val = pins.digitalReadPin(DigitalPin.P12) << 0 | pins.digitalReadPin(DigitalPin.P13) << 1;
-        return val;
+        
+        // Return corresponding output based on the pin readings
+    switch (val) {
+        case 0b00: // No line detected
+            return "no_line";
+        case 0b01: // Only right line detected
+            return "right_line";
+        case 0b10: // Only left line detected
+            return "left_line";
+        case 0b11: // Both lines detected
+            return "both_line";
+        default:
+            return "no_line"; // Default case if something unexpected happens
+        
     }
 
     //% block="set servo to angle %angle"
